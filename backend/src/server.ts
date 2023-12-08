@@ -63,7 +63,6 @@ export class Server {
       })
     })
     this.app.use(
-      '/api',
       allRoutes.ciudadRouter,
       allRoutes.clienteRouter,
       allRoutes.paisRouter,
