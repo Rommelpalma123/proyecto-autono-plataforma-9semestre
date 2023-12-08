@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./src/index.ts --ignore frontend",
-    "start": "tsc && cross-env NODE_ENV=production node ./dist/index.js",
+    "start": "node ./src/index.ts",
     "build": "tsc -p ."
   },
   "keywords": [],
