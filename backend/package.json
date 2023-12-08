@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./src/index.ts --ignore frontend",
-    "start": "node ./src/index.ts"
+    "start": "node ./src/index.ts",
+    "build": "tsc -p ."
   },
   "keywords": [],
   "author": "",
