@@ -11,12 +11,6 @@ export default defineConfig({
     watch: {
       usePolling: true,
     },
-    proxy: {
-      '/socket.io': {
-        target: 'https://banco-q8so.onrender.com',
-        ws: true,
-      },
-    },
   },
   resolve: {
     alias: {
