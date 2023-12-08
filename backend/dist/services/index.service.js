@@ -1,0 +1,20 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.registerService = exports.procedureModelService = exports.countryService = exports.clientService = exports.cityService = exports.accountService = exports.LoginService = exports.userService = void 0;
+var user_service_1 = require("./user.service");
+Object.defineProperty(exports, "userService", { enumerable: true, get: function () { return user_service_1.userService; } });
+var login_service_1 = require("./login.service");
+Object.defineProperty(exports, "LoginService", { enumerable: true, get: function () { return login_service_1.LoginService; } });
+var account_service_1 = require("./account.service");
+Object.defineProperty(exports, "accountService", { enumerable: true, get: function () { return account_service_1.accountService; } });
+var city_service_1 = require("./city.service");
+Object.defineProperty(exports, "cityService", { enumerable: true, get: function () { return city_service_1.cityService; } });
+var client_service_1 = require("./client.service");
+Object.defineProperty(exports, "clientService", { enumerable: true, get: function () { return client_service_1.clientService; } });
+var country_service_1 = require("./country.service");
+Object.defineProperty(exports, "countryService", { enumerable: true, get: function () { return country_service_1.countryService; } });
+var procedure_service_1 = require("./procedure.service");
+Object.defineProperty(exports, "procedureModelService", { enumerable: true, get: function () { return procedure_service_1.procedureModelService; } });
+var register_service_1 = require("./register.service");
+Object.defineProperty(exports, "registerService", { enumerable: true, get: function () { return register_service_1.registerService; } });
+//# sourceMappingURL=index.service.js.map
