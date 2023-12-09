@@ -29,10 +29,16 @@ export class Server {
   }
 
   private configuration() {
-    // this.app.set('port', 4000)
+    this.app.set('port', process.env.PORT || 4000)
     const spec = swaggerDoc(swaggerOptions)
     this.app.use('/swagger', swaggerExpress.serve, swaggerExpress.setup(spec))
-    this.app.use(cors())
+    this.app.use(
+      cors({
+        origin: '*',
+        methods: ['GET', 'POST', 'DELETE'],
+        allowedHeaders: ['Content-Type', 'Authorization']
+      })
+    )
   }
 
   private middlewares() {
@@ -78,17 +84,18 @@ export class Server {
     const io = new ServerSocket(server, {
       cors: {
         origin: 'https://frontend-n4f6.onrender.com',
-        methods: ['GET', 'POST', 'DELETE']
+        methods: ['GET', 'POST', 'DELETE'],
+        allowedHeaders: ['Content-Type', 'Authorization']
       }
     })
 
     createSocketServer(io)
-    /*server.listen(this.app.get('port'), () => {
+    server.listen(this.app.get('port'), () => {
       console.log(
         `Server está corriendo en el puerto http://localhost:${this.app.get(
           'port'
         )}`
       )
-    })*/
+    })
   }
 }
