@@ -29,7 +29,7 @@ export class Server {
   }
 
   private configuration() {
-    this.app.set('port', process.env.PORT || 4000)
+    this.app.set('port', 4000)
     const spec = swaggerDoc(swaggerOptions)
     this.app.use('/swagger', swaggerExpress.serve, swaggerExpress.setup(spec))
     this.app.use(
