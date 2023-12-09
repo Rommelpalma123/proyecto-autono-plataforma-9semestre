@@ -76,11 +76,12 @@ export class Server {
     const server = http.createServer(this.app)
     const io = new ServerSocket(server, {
       cors: {
-        origin: 'https://frontend-n4f6.onrender.com',
+        origin: process.env.CLIENT_HOST,
         methods: ['GET', 'POST', 'DELETE']
       }
     })
 
+    console.log(process.env.CLIENT_HOST)
     createSocketServer(io)
     server.listen(this.app.get('port'), () => {
       console.log(
