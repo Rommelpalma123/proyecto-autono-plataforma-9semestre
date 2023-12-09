@@ -53,6 +53,8 @@ export class Server {
     })
     const server = new ApolloServer({
       schema,
+      persistedQueries: false,
+      cache: 'bounded',
       plugins: [ApolloServerPluginLandingPageGraphQLPlayground]
     })
 
@@ -82,7 +84,7 @@ export class Server {
     const server = http.createServer(this.app)
     const io = new ServerSocket(server, {
       cors: {
-        origin: 'https://frontend-n4f6.onrender.com',
+        origin: '*',
         methods: ['GET', 'POST', 'DELETE', 'PUT'],
         allowedHeaders: ['Content-Type', 'Authorization']
       }
@@ -90,7 +92,7 @@ export class Server {
 
     createSocketServer(io)
     server.listen(0, () => {
-      const port = server.address()
+      const port = 4000
       console.log(`Server está corriendo en el puerto http://localhost:${port}`)
     })
   }
