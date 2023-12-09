@@ -83,8 +83,8 @@ export class Server {
     const server = http.createServer(this.app)
     const io = new ServerSocket(server, {
       cors: {
-        origin: 'https://frontend-n4f6.onrender.com',
-        methods: ['GET', 'POST', 'DELETE'],
+        origin: '*',
+        methods: ['GET', 'POST', 'DELETE', 'PUT'],
         allowedHeaders: ['Content-Type', 'Authorization']
       }
     })
