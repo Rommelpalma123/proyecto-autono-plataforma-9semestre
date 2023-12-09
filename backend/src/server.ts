@@ -29,7 +29,6 @@ export class Server {
   }
 
   private configuration() {
-    this.app.set('port', 4000)
     const spec = swaggerDoc(swaggerOptions)
     this.app.use('/swagger', swaggerExpress.serve, swaggerExpress.setup(spec))
     this.app.use(
@@ -83,19 +82,16 @@ export class Server {
     const server = http.createServer(this.app)
     const io = new ServerSocket(server, {
       cors: {
-        origin: '*',
+        origin: 'https://frontend-n4f6.onrender.com',
         methods: ['GET', 'POST', 'DELETE', 'PUT'],
         allowedHeaders: ['Content-Type', 'Authorization']
       }
     })
 
     createSocketServer(io)
-    server.listen(this.app.get('port'), () => {
-      console.log(
-        `Server está corriendo en el puerto http://localhost:${this.app.get(
-          'port'
-        )}`
-      )
+    server.listen(0, () => {
+      const port = server.address()
+      console.log(`Server está corriendo en el puerto http://localhost:${port}`)
     })
   }
 }
