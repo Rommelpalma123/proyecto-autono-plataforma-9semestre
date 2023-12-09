@@ -29,7 +29,7 @@ export class Server {
   }
 
   private configuration() {
-    this.app.set('port', process.env.PORT || 4000)
+    this.app.set('port', 4000)
     const spec = swaggerDoc(swaggerOptions)
     this.app.use('/swagger', swaggerExpress.serve, swaggerExpress.setup(spec))
   }
@@ -76,12 +76,11 @@ export class Server {
     const server = http.createServer(this.app)
     const io = new ServerSocket(server, {
       cors: {
-        origin: process.env.CLIENT_HOST,
+        origin: 'https://frontend-n4f6.onrender.com',
         methods: ['GET', 'POST', 'DELETE']
       }
     })
 
-    console.log(process.env.CLIENT_HOST)
     createSocketServer(io)
     server.listen(this.app.get('port'), () => {
       console.log(
