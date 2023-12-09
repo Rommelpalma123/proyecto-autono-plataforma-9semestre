@@ -29,7 +29,7 @@ export class Server {
   }
 
   private configuration() {
-    this.app.set('port', 4000)
+    // this.app.set('port', 4000)
     const spec = swaggerDoc(swaggerOptions)
     this.app.use('/swagger', swaggerExpress.serve, swaggerExpress.setup(spec))
     this.app.use(cors())
@@ -83,12 +83,12 @@ export class Server {
     })
 
     createSocketServer(io)
-    server.listen(this.app.get('port'), () => {
+    /*server.listen(this.app.get('port'), () => {
       console.log(
         `Server está corriendo en el puerto http://localhost:${this.app.get(
           'port'
         )}`
       )
-    })
+    })*/
   }
 }
