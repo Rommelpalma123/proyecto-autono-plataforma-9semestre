@@ -75,7 +75,7 @@ export class Server {
   public listen() {
     const server = http.createServer(this.app)
     const io = new ServerSocket(server, {
-      cors: {}
+      cors: { origin: '*', methods: ['GET', 'POST', 'DELETE'] }
     })
 
     createSocketServer(io)
