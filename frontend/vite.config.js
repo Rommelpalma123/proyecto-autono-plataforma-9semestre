@@ -14,6 +14,7 @@ export default defineConfig({
     proxy: {
       '/socket.io': {
         target: 'https://banco-q8so.onrender.com',
+        changeOrigin: true,
         ws: true,
         secure: true,
       },
