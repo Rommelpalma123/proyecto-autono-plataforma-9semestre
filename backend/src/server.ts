@@ -76,7 +76,7 @@ export class Server {
     const server = http.createServer(this.app)
     const io = new ServerSocket(server, {
       cors: {
-        origin: 'https://main--jolly-fudge-bd9f46.netlify.app',
+        origin: 'https://frontend-n4f6.onrender.com',
         methods: ['GET', 'POST', 'DELETE']
       }
     })
