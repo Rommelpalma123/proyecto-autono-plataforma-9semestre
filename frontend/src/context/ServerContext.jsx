@@ -13,7 +13,7 @@ class ServerApi {
 
   login = (data) => {
     return new Promise((resolve, reject) => {
-      postAxios(`${this.baseUrl}/cliente/login`, data)
+      postAxios(`${this.url}/cliente/login`, data)
         .then((response) => resolve(response))
         .catch((error) => reject(error));
     });
