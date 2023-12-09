@@ -12,7 +12,7 @@ export const ListProcedure = () => {
   const [procedures, setProcedures] = useState([]);
   const [proceduresFilter, setProceduresFilter] = useState([]);
   const server = useServer();
-  const socket = io('/');
+  const socket = io();
 
   const deleteProcedure = async (id) => {
     try {
