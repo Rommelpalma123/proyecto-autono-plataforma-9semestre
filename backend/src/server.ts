@@ -32,6 +32,7 @@ export class Server {
     this.app.set('port', 4000)
     const spec = swaggerDoc(swaggerOptions)
     this.app.use('/swagger', swaggerExpress.serve, swaggerExpress.setup(spec))
+    this.app.use(cors())
   }
 
   private middlewares() {
