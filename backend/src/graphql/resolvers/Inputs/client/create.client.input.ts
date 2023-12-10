@@ -1,6 +1,7 @@
 import { Field, InputType } from 'type-graphql'
 import { Client } from '../../../../models/client.models'
 import { IsNotEmpty } from 'class-validator'
+import { CreateCountryInput } from '../country/create.country.input'
 @InputType()
 export class CreateClientInput implements Partial<Client> {
   @Field(() => String)
@@ -22,7 +23,7 @@ export class CreateClientInput implements Partial<Client> {
   @IsNotEmpty()
   password: string
 
-  @Field(() => String)
+  @Field(() => CreateCountryInput)
   @IsNotEmpty()
-  id_pais: string
+  id_pais: CreateCountryInput
 }

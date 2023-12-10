@@ -9,7 +9,6 @@ const socket = io(import.meta.env.VITE_API);
 
 export const CreateProcedure = () => {
   const [inputValues, setInputValues] = useState(createProcedure);
-  const [procedures, setProcedures] = useState([]);
   const navigate = useNavigate();
 
   socket.on('connect', () => {
@@ -111,29 +110,6 @@ export const CreateProcedure = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className='mt-5'>
-                <h4>Lista de tramites</h4>
-                <ul className='mt-3'>
-                  {procedures.map((procedure, i) => (
-                    <li key={i} className=''>
-                      <div className='d-flex gap-3'>
-                        <div className='d-flex gap-2'>
-                          <b>
-                            <h4>Tramite:</h4>
-                          </b>
-                          <h4>{procedure.descripcion}</h4>
-                        </div>
-                        <div className='d-flex gap-2'>
-                          <b>
-                            <h4>Costo:</h4>
-                          </b>
-                          <h4>{procedure.costo}</h4>
-                        </div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
               </div>
             </div>
           </div>

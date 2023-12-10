@@ -7,6 +7,7 @@ import { useAuth } from '@/context/AuthContext';
 import { FaUser } from 'react-icons/fa';
 import { AiOutlineDeliveredProcedure } from 'react-icons/ai';
 import { MdOutlineAppRegistration } from 'react-icons/md';
+import { TbBrandGraphql } from 'react-icons/tb';
 
 import '@/static/styles/layout.css';
 
@@ -102,7 +103,27 @@ export const SideBar = () => {
             <li
               onClick={() => handleItemClick(3)}
               style={{
-                backgroundColor: selectedItem === 3 ? '#e11111' : '#fff',
+                backgroundColor: selectedItem === 3 ? '#00fa32' : '#fff',
+              }}
+              className='text-decoration-none rounded mt-3 item-registro'>
+              <Link
+                className='d-flex text-dark align-items-center m-2'
+                to='/graphql'
+                style={{
+                  color: selectedItem === 3 ? '#00fa32' : '#090909',
+                  height: '40px',
+                }}
+                onClick={() => {
+                  hideSidebar();
+                }}>
+                <TbBrandGraphql className='fs-4 m-2' /> Graplql
+              </Link>
+            </li>
+
+            <li
+              onClick={() => handleItemClick(4)}
+              style={{
+                backgroundColor: selectedItem === 4 ? '#e11111' : '#fff',
               }}
               className='text-decoration-none rounded mt-3 item-seccion'>
               <Link

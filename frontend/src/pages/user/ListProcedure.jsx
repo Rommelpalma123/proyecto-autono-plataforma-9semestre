@@ -11,7 +11,6 @@ import { io } from 'socket.io-client';
 export const ListProcedure = () => {
   const [procedures, setProcedures] = useState([]);
   const [proceduresFilter, setProceduresFilter] = useState([]);
-  const server = useServer();
   const socket = io(import.meta.env.VITE_API);
 
   const deleteProcedure = async (id) => {

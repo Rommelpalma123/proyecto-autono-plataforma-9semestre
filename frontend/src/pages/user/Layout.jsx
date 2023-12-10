@@ -9,6 +9,7 @@ import { ListRegister } from './ListRegister';
 import { CreateRegister } from './CreateRegister';
 import { CreateProcedure } from './CreateProcedure';
 import { EditProcedure } from './EditProcedure';
+import { Graphql } from './Graphql';
 
 export const Layout = () => {
   return (
@@ -25,6 +26,7 @@ export const Layout = () => {
           <Route path='/crear-tramite' element={<CreateProcedure />} />
           <Route path='/editar-tramite' element={<EditProcedure />} />
           <Route path='/crear-registro' element={<CreateRegister />} />
+          <Route path='/graphql' element={<Graphql />} />
           <Route path='*' element={<Navigate to='/' />} />
         </Routes>
       </div>

@@ -10,7 +10,7 @@ export class ClientService {
   }
 
   async findAllClient(): Promise<Client[] | null> {
-    return await ClientModel.find()
+    return await ClientModel.find().populate('id_pais')
   }
 
   async findOneClient(id: string): Promise<Client | null> {

@@ -5,6 +5,7 @@ import {
   modelOptions
 } from '@typegoose/typegoose'
 import { Schema } from 'mongoose'
+import { Country } from './country.models'
 // import { Country } from './country.models'
 @ObjectType({ description: 'Client model' })
 @modelOptions({ schemaOptions: { timestamps: true } })
@@ -29,9 +30,9 @@ export class Client {
   @Property({ required: true })
   password: string
 
-  @Field(() => String)
+  @Field(() => Country)
   @Property({ type: Schema.Types.ObjectId, ref: 'Country', required: true })
-  id_pais: string
+  id_pais: Country
 }
 
 export const ClientModel = getModelForClass(Client)

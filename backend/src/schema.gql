@@ -20,7 +20,7 @@ type Client {
   cedula: String!
   edad: String!
   email: String!
-  id_pais: String!
+  id_pais: Country!
   nombre: String!
   password: String!
 }
@@ -44,7 +44,7 @@ input CreateClientInput {
   cedula: String!
   edad: String!
   email: String!
-  id_pais: String!
+  id_pais: CreateCountryInput!
   nombre: String!
   password: String!
 }
