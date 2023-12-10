@@ -29,6 +29,7 @@ export class Server {
   }
 
   private configuration() {
+    this.app.set('port', 4000)
     const spec = swaggerDoc(swaggerOptions)
     this.app.use('/swagger', swaggerExpress.serve, swaggerExpress.setup(spec))
     this.app.use(
@@ -91,9 +92,12 @@ export class Server {
     })
 
     createSocketServer(io)
-    server.listen(0, () => {
-      const port = 4000
-      console.log(`Server está corriendo en el puerto http://localhost:${port}`)
+    server.listen(this.app.get('port'), () => {
+      console.log(
+        `Server está corriendo en el puerto http://localhost:${this.app.get(
+          'port'
+        )}`
+      )
     })
   }
 }

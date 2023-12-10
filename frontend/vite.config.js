@@ -11,14 +11,9 @@ export default defineConfig({
     watch: {
       usePolling: true,
     },
-    cors: {
-      allowedHeaders: ['Content-Type', 'Authorization'],
-      methods: ['GET', 'POST', 'DELETE'],
-      origin: '*',
-    },
     proxy: {
       '/socket.io': {
-        target: 'https://banco-q8so.onrender.com',
+        target: 'http://localhost:4000',
         changeOrigin: true,
         ws: true,
         secure: true,
@@ -31,4 +26,3 @@ export default defineConfig({
     },
   },
 });
-
