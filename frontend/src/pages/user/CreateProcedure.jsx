@@ -5,7 +5,7 @@ import { showBasicAlert } from '@/helpers/sweetAlert';
 import { io } from 'socket.io-client';
 import { useNavigate } from 'react-router-dom';
 
-const socket = io();
+const socket = io(import.meta.env.VITE_API);
 
 export const CreateProcedure = () => {
   const [inputValues, setInputValues] = useState(createProcedure);
