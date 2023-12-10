@@ -1,14 +1,20 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_ALL_CLIENTS } from '@/graphql/querys';
-import chart from 'chart.js/auto';
 import { BarChart } from '@/components/BarChart';
 
 export const Graphql = () => {
   const { loading, error, data } = useQuery(GET_ALL_CLIENTS);
+  const [chartData, setChartData] = useState([]);
 
-  if (loading) return <h2>Cargando..</h2>;
-  if (error) return <h2>Error: {error.message}</h2>;
+  useEffect(() => {
+    if (data?.allClient) {
+      setChartData(data.allClient);
+    }
+  }, [data]);
+
+  if (loading) return <h2 className='mx-3'>Cargando..</h2>;
+  if (error) return <h2 className='mx-3'>Error: {error.message}</h2>;
 
   return (
     <div style={{ height: '100vh' }}>
@@ -16,7 +22,7 @@ export const Graphql = () => {
         <h4 className='text-center'>
           <b>Reporte de graphql</b>
         </h4>
-        <BarChart data={data?.allClient} />
+        <BarChart data={chartData} />
       </div>
     </div>
   );

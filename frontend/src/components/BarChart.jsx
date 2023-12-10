@@ -1,12 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import Chart from 'chart.js/auto';
+import React, { useEffect, useRef, useState } from 'react';
 
 export const BarChart = ({ data }) => {
   const chartRef = useRef();
+  const [chartInstance, setChartInstance] = useState(null);
 
   useEffect(() => {
     const clientByCountry = data.reduce((acc, client) => {
       const country = client.id_pais.nombre;
-      acc[country] = acc[country] + 1 || 1;
+      acc[country] = (acc[country] || 0) + 1;
       return acc;
     }, {});
 
@@ -33,9 +35,13 @@ export const BarChart = ({ data }) => {
       },
     };
 
+    if (chartInstance) {
+      chartInstance.destroy();
+    }
     const ctx = chartRef.current.getContext('2d');
-    new chart(ctx, config);
+    const newChartInstance = new Chart(ctx, config);
+    setChartInstance(newChartInstance);
   }, [data]);
 
-  return <canvas ref={chartRef} width={400} height={200}></canvas>;
+  return <canvas ref={chartRef} width={500} height={200}></canvas>;
 };

@@ -6,11 +6,11 @@ import { ApolloProvider } from '@apollo/client';
 import { client } from './graphql/clientGraphql';
 
 export const App = () => (
-  <ApolloProvider client={client}>
-    <AuthProvider>
-      <ServerProvider>
+  <AuthProvider>
+    <ServerProvider>
+      <ApolloProvider client={client}>
         <RouterManager />
-      </ServerProvider>
-    </AuthProvider>
-  </ApolloProvider>
+      </ApolloProvider>
+    </ServerProvider>
+  </AuthProvider>
 );
