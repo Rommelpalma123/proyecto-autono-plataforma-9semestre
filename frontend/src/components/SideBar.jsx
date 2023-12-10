@@ -116,7 +116,7 @@ export const SideBar = () => {
                 onClick={() => {
                   hideSidebar();
                 }}>
-                <TbBrandGraphql className='fs-4 m-2' /> Graplql
+                <TbBrandGraphql className='fs-4 m-2' /> GraphQl
               </Link>
             </li>
 
